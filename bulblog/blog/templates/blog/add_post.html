@@ -1,0 +1,13 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<form action="{% url 'add_post' %}" method="post">
+    {% csrf_token %}
+    {% for f in form %}
+        <p><label for="{{ f.id_for_label }}">{{f.name}}: </label>{{f}}</p>
+        <div>{{f.errors}}</div>
+   {% endfor %}
+    <input type="submit" value="Добавить">
+</form>
+
+{% endblock %}

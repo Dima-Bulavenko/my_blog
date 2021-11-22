@@ -1,0 +1,11 @@
+{% extends "blog/base.html" %}
+
+
+
+{% block content %}
+{% for ps in posts %}
+    <h1>{{ps.name}}</h1>
+    <p>{{ps.content|linebreaks|truncatewords:50}}</p>
+    <a href="{{ ps.get_absolute_url}}"><p>Читать пост</p></a>
+{% endfor %}
+{% endblock %}
